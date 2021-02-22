@@ -1,0 +1,20 @@
+<div class="table  is-fullwidth">
+    <thead>
+        <th>
+            <div>Status</div>
+        </th>
+        <th>
+            <div style="width: 1000px">Task</div>
+        </th>
+        <th>
+            <div>Delete</div>
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of taskList">
+            <td>{{ task.status }}</td>
+            <td>{{task.entry}}</td>
+            <td><button class="delete is-large"></button></td>
+        </tr>
+    </tbody>
+</div>
