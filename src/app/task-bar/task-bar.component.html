@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let task of taskList">
-            <td>{{ task.status }}</td>
+            <td><input class="checkbox" type="checkbox" [checked]="task.status"/></td>
             <td>{{task.entry}}</td>
             <td><button class="delete is-large"></button></td>
         </tr>

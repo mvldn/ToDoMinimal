@@ -10,6 +10,7 @@ import { ToDoService } from './to-do.service';
 export class AppComponent {
   title = 'ToDoMinimal';
   listOfTasks: Array<Tasks>;
+  input: string;
 
   constructor(private toDoService: ToDoService){
   }
@@ -17,4 +18,8 @@ export class AppComponent {
     this.listOfTasks = this.toDoService.getTasks();
   }
 
+  submitNew(input: string){ 
+    this.toDoService.set({entry: input, status: false, taskNumber: 1});    
+    this.ngOnInit();
+  }
 }

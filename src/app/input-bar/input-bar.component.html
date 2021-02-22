@@ -1,0 +1,24 @@
+<div class="box">
+    <form #inputForm="ngForm" (ngSubmit)="onSubmit($event)">
+        <div class="columns">
+            <div class="column">
+                <form (ngSubmit)="onSubmit($event)" onsubmit="reset()">
+                    <input 
+                    placeholder="Enter a new to-do task..." 
+                    class="input"
+                    (input)="input = $event.target.value"/>
+                </form>
+            </div>
+            <div class="column is-one-fifth">
+                <form (ngSubmit)="onSubmit($event)" onsubmit="reset()">
+                    <button 
+                    class="button" 
+                    (click)="onSubmit($event)">
+                    Add new
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </form>
+</div>

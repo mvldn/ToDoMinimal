@@ -2,5 +2,9 @@
   <br>
   <h1 class="title is-4">Minimalist To-Do List</h1>
   <br>
+
+  <app-input-bar (submitted)="submitNew($event)" ></app-input-bar>
+  <br>
+  
   <app-task-bar [taskList]="listOfTasks"></app-task-bar>
 </div>
