@@ -13,11 +13,16 @@ export class AppComponent {
   input: string;
   popupOpen: boolean = false;
   select: number = 0;
+  file: any;
+  importedTasks: Array<Tasks>;
 
   constructor(private toDoService: ToDoService) {
   }
   ngOnInit(): void {
     this.listOfTasks = this.toDoService.getTasks();
+    document.getElementById('importButton').addEventListener('click', () => {
+      document.getElementById('fileInput').click();
+    });
   }
 
   submitNew(input: string) {
@@ -60,6 +65,22 @@ export class AppComponent {
     }());
 
     saveData(data, "todo_export.txt");
+  }
+
+  onChange(file: File): void {
+    let fileReader = new FileReader();
+    fileReader.onload = () => {
+      const temp = fileReader.result.toString();
+      this.importedTasks = JSON.parse(JSON.parse(temp));
+      this.toDoService.compare(this.importedTasks);
+      this.ngOnInit();
+    }
+    fileReader.readAsText(this.file)
+
+  }
+  fileChanged(event: any) {
+    this.file = event.target.files[0];
+    this.onChange(event);
   }
 
 }

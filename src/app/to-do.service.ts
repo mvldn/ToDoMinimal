@@ -8,6 +8,7 @@ export class ToDoService {
   localStorage: Storage;
   lastKey: number;
   sortedKeys: Array<number>;
+  allEntries: Array<string> = [];
 
 
   constructor() {
@@ -32,7 +33,8 @@ export class ToDoService {
         let value = localStorage.getItem(key);
         let item = JSON.parse(value)
         results.push(item);
-        this.sortedKeys.push(item['taskNumber']);        
+        this.sortedKeys.push(item['taskNumber']);
+        this.allEntries.push(item['entry']);       
       }
 
     }
@@ -64,4 +66,15 @@ export class ToDoService {
     return true;
   }
 
+  compare(imported: Array<Tasks>){
+    let cur = 0;
+
+    while(cur < imported.length){
+      if( this.allEntries.indexOf(imported[cur]['entry']) === -1 ){        
+        this.lastKey =  Math.max(this.lastKey,imported[cur]['taskNumber'])+1;
+        this.set(imported[cur]);
+      }
+      cur++;
+    } 
+  }
 }
