@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ToDoMinimal"
+    }
+  },
+  "defaultProject": "ToDoMinimal",
+  "cli": {
+    "analytics": false
+  }
 }
