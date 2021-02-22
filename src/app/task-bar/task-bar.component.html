@@ -12,8 +12,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let task of taskList">
-            <td><input class="checkbox" type="checkbox" [checked]="task.status"/></td>
-            <td>{{task.entry}}</td>
+            <td><input class="checkbox" type="checkbox" [checked]="task.status"
+                    (click)="updateValue(task['taskNumber'])" /></td>
+            <td>
+                <div [ngStyle]="{color: task.status? 'grey': 'black'}">{{task.entry}}</div>
+            </td>
             <td><button class="delete is-large" (click)="onClick(task['taskNumber'])"></button></td>
         </tr>
     </tbody>

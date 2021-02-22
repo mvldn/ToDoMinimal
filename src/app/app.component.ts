@@ -38,4 +38,9 @@ export class AppComponent {
     this.ngOnInit();
   }
 
+  onUpdateValue(keyNum: number){
+    this.toDoService.update(JSON.stringify(keyNum));
+    this.ngOnInit();
+  }
+
 }

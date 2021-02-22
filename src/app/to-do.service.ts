@@ -53,4 +53,15 @@ export class ToDoService {
     return true;
   }
 
+  update(key: string){
+    let item = JSON.parse(localStorage.getItem(key));
+    if(item['status'] === false)
+      item['status'] = true;
+    else
+      item['status'] = false;
+    
+    localStorage.setItem(key, JSON.stringify(item));
+    return true;
+  }
+
 }
