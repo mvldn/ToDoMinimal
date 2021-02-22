@@ -3,8 +3,11 @@
   <h1 class="title is-4">Minimalist To-Do List</h1>
   <br>
 
-  <app-input-bar (submitted)="submitNew($event)" ></app-input-bar>
+  <app-input-bar (submitted)="submitNew($event)"></app-input-bar>
   <br>
-  
-  <app-task-bar [taskList]="listOfTasks"></app-task-bar>
+
+  <app-task-bar [taskList]="listOfTasks" (change)="popupOpen" (selected)="onClick($event)" ></app-task-bar>
 </div>
+
+<app-popup *ngIf="popupOpen" [index]="select" (close)="popupOpen=false" (confirm)="onDelete(select); popupOpen=false">
+</app-popup>

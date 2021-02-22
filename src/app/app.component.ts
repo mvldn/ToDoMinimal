@@ -11,6 +11,8 @@ export class AppComponent {
   title = 'ToDoMinimal';
   listOfTasks: Array<Tasks>;
   input: string;
+  popupOpen: boolean = false;
+  select: number = 0;
 
   constructor(private toDoService: ToDoService){
   }
@@ -22,4 +24,18 @@ export class AppComponent {
     this.toDoService.set({entry: input, status: false, taskNumber: 1});    
     this.ngOnInit();
   }
+
+  onDelete(index: number){    
+    this.toDoService.remove(index);
+    this.popupOpen = !this.popupOpen;
+    this.select = index;
+    this.ngOnInit();
+  }
+
+  onClick(ind: number){
+    this.select = ind;    
+    this.popupOpen = !this.popupOpen;
+    this.ngOnInit();
+  }
+
 }

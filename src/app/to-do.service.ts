@@ -48,4 +48,9 @@ export class ToDoService {
     return true;
   }
 
+  remove(taskNumber: number): boolean {
+    localStorage.removeItem(JSON.stringify(taskNumber));    
+    return true;
+  }
+
 }

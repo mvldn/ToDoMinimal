@@ -14,7 +14,7 @@
         <tr *ngFor="let task of taskList">
             <td><input class="checkbox" type="checkbox" [checked]="task.status"/></td>
             <td>{{task.entry}}</td>
-            <td><button class="delete is-large"></button></td>
+            <td><button class="delete is-large" (click)="onClick(task['taskNumber'])"></button></td>
         </tr>
     </tbody>
 </div>
