@@ -1,4 +1,5 @@
-<div class="table  is-fullwidth">
+<div class="table-container">
+    <table class="table is-fullwidth is-hoverable">
     <thead>
         <th>
             <div>Status</div>
@@ -15,9 +16,10 @@
             <td><input class="checkbox" type="checkbox" [checked]="task.status"
                     (click)="updateValue(task['taskNumber'])" /></td>
             <td>
-                <div [ngStyle]="{color: task.status? 'grey': 'black'}">{{task.entry}}</div>
+                <div [ngStyle]="{color: task.status? 'grey': 'black'}"><p>{{task.entry}}</p></div>
             </td>
             <td><button class="delete is-large" (click)="onClick(task['taskNumber'])"></button></td>
         </tr>
     </tbody>
+    </table>
 </div>
